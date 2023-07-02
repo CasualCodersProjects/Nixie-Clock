@@ -3,4 +3,5 @@
   (lib (name "nixies-us")(type "Legacy")(uri "${KIPRJMOD}/NixieLibs/nixies-us.lib")(options "")(descr ""))
   (lib (name "nixiemisc")(type "Legacy")(uri "${KIPRJMOD}/NixieLibs/nixiemisc.lib")(options "")(descr ""))
   (lib (name "mynixies")(type "Legacy")(uri "${KIPRJMOD}/NixieLibs/mynixies.lib")(options "")(descr ""))
+  (lib (name "Indicator_Tube")(type "KiCad")(uri "${KIPRJMOD}/Indicator_Tube.kicad_sym")(options "")(descr ""))
 )
