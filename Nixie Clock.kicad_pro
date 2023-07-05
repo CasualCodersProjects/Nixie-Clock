@@ -45,11 +45,32 @@
         "silk_text_thickness": 0.15,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.5
+          "min_clearance": 0.0
         }
       },
-      "diff_pair_dimensions": [],
-      "drc_exclusions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
+      "drc_exclusions": [
+        "drill_out_of_range|142792000|81620000|a158e61c-28ab-40ac-b930-9ae84089e5b7|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|142792000|83020000|175d83a4-cd16-4de8-96a3-34d9d8c5ba8e|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|143492000|80920000|9c7b0bdd-4066-4383-b5e9-cf2a2d647623|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|143492000|82320000|b4ce62fa-b830-492c-9ff7-5c43721cea13|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|143492000|83720000|cdabd17c-ad42-4c05-b4be-f5f95acf246a|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|144192000|81620000|c6f49064-cdce-471b-953b-526bd6417b6c|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|144192000|83020000|9b180452-aee6-42e8-941f-2a5661892f3c|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|144892000|80920000|745630c4-0a0e-4c91-b8a8-f827a70a3e79|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|144892000|82320000|63870f06-f317-4b45-86a2-c9956b4ac240|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|144892000|83720000|3053eee0-6e78-4261-bc8c-9af98a5fff0b|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|145592000|81620000|9ef614a3-b645-42f8-a65e-5f802fe8a60e|00000000-0000-0000-0000-000000000000",
+        "drill_out_of_range|145592000|83020000|abaab6f2-62e4-4ac3-8477-c8cc1db9bf8d|00000000-0000-0000-0000-000000000000",
+        "silk_edge_clearance|228161370|79120000|6c675c5b-e832-417d-913c-ba74b117f1f6|6b0a4a9a-3a8e-4396-93ac-47e1f7b8448d",
+        "silk_edge_clearance|228161370|88520000|6c675c5b-e832-417d-913c-ba74b117f1f6|d8caf71f-496a-4a5b-9bb3-706d9819590e"
+      ],
       "meta": {
         "version": 2
       },
@@ -105,19 +126,19 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.0,
-        "min_connection": 0.0,
-        "min_copper_edge_clearance": 0.0,
+        "min_clearance": 0.18,
+        "min_connection": 0.15,
+        "min_copper_edge_clearance": 0.5,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
         "min_microvia_diameter": 0.19999999999999998,
         "min_microvia_drill": 0.09999999999999999,
-        "min_resolved_spokes": 2,
+        "min_resolved_spokes": 1,
         "min_silk_clearance": 0.0,
         "min_text_height": 0.7999999999999999,
         "min_text_thickness": 0.08,
-        "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.0,
+        "min_through_hole_diameter": 0.25,
+        "min_track_width": 0.15,
         "min_via_annular_width": 0.09999999999999999,
         "min_via_diameter": 0.5,
         "solder_mask_clearance": 0.0,
@@ -165,8 +186,16 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [],
-      "via_dimensions": [],
+      "track_widths": [
+        0.0,
+        0.5
+      ],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        }
+      ],
       "zones_allow_external_fillets": false
     },
     "layer_presets": [],
@@ -404,14 +433,31 @@
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
-        "microvia_diameter": 0.3,
-        "microvia_drill": 0.1,
+        "microvia_diameter": 0.6,
+        "microvia_drill": 0.25,
         "name": "Default",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.25,
-        "via_diameter": 0.8,
-        "via_drill": 0.4,
+        "track_width": 0.2,
+        "via_diameter": 0.6,
+        "via_drill": 0.25,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.6,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.6,
+        "microvia_drill": 0.25,
+        "name": "HV",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.15,
+        "via_diameter": 0.6,
+        "via_drill": 0.25,
         "wire_width": 6
       }
     ],
@@ -420,7 +466,32 @@
     },
     "net_colors": null,
     "netclass_assignments": null,
-    "netclass_patterns": []
+    "netclass_patterns": [
+      {
+        "netclass": "HV",
+        "pattern": "\\d_\\d"
+      },
+      {
+        "netclass": "HV",
+        "pattern": "+170v"
+      },
+      {
+        "netclass": "HV",
+        "pattern": "RDP"
+      },
+      {
+        "netclass": "HV",
+        "pattern": "LDP"
+      },
+      {
+        "netclass": "HV",
+        "pattern": "Net-(Q2-D)"
+      },
+      {
+        "netclass": "HV",
+        "pattern": "Net-(Q1-D)"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {

@@ -3,4 +3,8 @@
   (lib (name "nixies-us")(type "Legacy")(uri "${KIPRJMOD}/NixieLibs/nixies-us.lib")(options "")(descr ""))
   (lib (name "nixiemisc")(type "Legacy")(uri "${KIPRJMOD}/NixieLibs/nixiemisc.lib")(options "")(descr ""))
   (lib (name "mynixies")(type "Legacy")(uri "${KIPRJMOD}/NixieLibs/mynixies.lib")(options "")(descr ""))
+  (lib (name "ESP")(type "KiCad")(uri "${KIPRJMOD}/ESP.kicad_sym")(options "")(descr ""))
+  (lib (name "WorldSemi_LED")(type "KiCad")(uri "${KIPRJMOD}/WorldSemi_LED.kicad_sym")(options "")(descr ""))
+  (lib (name "omnixie")(type "KiCad")(uri "${KIPRJMOD}/omnixie.kicad_sym")(options "")(descr ""))
+  (lib (name "BH1730")(type "KiCad")(uri "${KIPRJMOD}/BH1730.kicad_sym")(options "")(descr ""))
 )

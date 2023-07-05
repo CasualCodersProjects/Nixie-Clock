@@ -3,4 +3,6 @@
   (lib (name "nixies-us")(type "Legacy")(uri "${KIPRJMOD}/NixieLibs/nixies-us.mod")(options "")(descr ""))
   (lib (name "nixiemisc")(type "Legacy")(uri "${KIPRJMOD}/NixieLibs/nixiemisc.mod")(options "")(descr ""))
   (lib (name "mynixies")(type "Legacy")(uri "${KIPRJMOD}/NixieLibs/mynixies.mod")(options "")(descr ""))
+  (lib (name "omnixie")(type "KiCad")(uri "${KIPRJMOD}/omnixie.pretty")(options "")(descr ""))
+  (lib (name "Sensor_Ambient")(type "KiCad")(uri "${KIPRJMOD}/Sensor_Ambient.pretty")(options "")(descr ""))
 )
