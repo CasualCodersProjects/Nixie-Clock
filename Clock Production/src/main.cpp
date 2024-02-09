@@ -9,6 +9,10 @@
 #include "index.h"
 #include <NTPClient.h>
 #include <time.h>
+#include <FastLED.h>
+
+#define NUM_LEDS 4
+#define DATA_PIN 1
 
 
 // User Memory - WiFi SSID, PSK, Clock Configuration bits.
@@ -27,9 +31,12 @@ WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP);
 AsyncWebServer server(80);
 
+// RGB LEDs
+CRGB leds[NUM_LEDS];
+
 // Pins used for segment displays
-const int minutes_pin[8] = {9, 8, 3, 14, 13, 10, 11, 12};
-const int hours_pin[8] = {7, 4, 5, 6, 18, 15, 16, 17};
+const int minutes_pin[8] = {18, 16, 15, 17, 9, 11, 12, 10};
+const int hours_pin[8] = {38, 36, 35, 37, 13, 21, 33, 14};
 
 void printTime(int hours, int minutes){
   // Serial.println("Printing: " + String(hours) + ":" + String(minutes));
@@ -38,25 +45,25 @@ void printTime(int hours, int minutes){
   int minutesT = minutes / 10;
   int minutesO = minutes % 10;
 
-  digitalWrite(13, (hoursT >> 0) & 1);  // A4
-  digitalWrite(10, (hoursT >> 1) & 1);  // B4
-  digitalWrite(11, (hoursT >> 2) & 1);  // C4
-  digitalWrite(12, (hoursT >> 3) & 1);  // D4
+  digitalWrite(18, (hoursT >> 0) & 1);  // A4
+  digitalWrite(16, (hoursT >> 1) & 1);  // B4
+  digitalWrite(15, (hoursT >> 2) & 1);  // C4
+  digitalWrite(17, (hoursT >> 3) & 1);  // D4
 
   digitalWrite(9, (hoursO >> 0) & 1);   // A3
-  digitalWrite(8, (hoursO >> 1) & 1);  // B3
-  digitalWrite(3, (hoursO >> 2) & 1);  // C3
-  digitalWrite(14, (hoursO >> 3) & 1);  // D3
+  digitalWrite(11, (hoursO >> 1) & 1);  // B3
+  digitalWrite(12, (hoursO >> 2) & 1);  // C3
+  digitalWrite(10, (hoursO >> 3) & 1);  // D3
 
-  digitalWrite(18, (minutesT >> 0) & 1);  // A2
-  digitalWrite(15, (minutesT >> 1) & 1);  // B2
-  digitalWrite(16, (minutesT >> 2) & 1);  // C2
-  digitalWrite(17, (minutesT >> 3) & 1);  // D2
+  digitalWrite(38, (minutesT >> 0) & 1);  // A2
+  digitalWrite(36, (minutesT >> 1) & 1);  // B2
+  digitalWrite(35, (minutesT >> 2) & 1);  // C2
+  digitalWrite(37, (minutesT >> 3) & 1);  // D2
 
-  digitalWrite(7, (minutesO >> 0) & 1);  // A1
-  digitalWrite(4, (minutesO >> 1) & 1);  // B1
-  digitalWrite(5, (minutesO >> 2) & 1);  // C1
-  digitalWrite(6, (minutesO >> 3) & 1);  // D1
+  digitalWrite(13, (minutesO >> 0) & 1);  // A1
+  digitalWrite(21, (minutesO >> 1) & 1);  // B1
+  digitalWrite(33, (minutesO >> 2) & 1);  // C1
+  digitalWrite(14, (minutesO >> 3) & 1);  // D1
 }
 
 // Initial Setup Function
@@ -90,7 +97,7 @@ void setup() {
     Serial.println("WiFi not configured. Skipping network connection.");
   }
 
-// WiFi Credentials exist. Configure WiFi and attempt to connect.
+  // WiFi Credentials exist. Configure WiFi and attempt to connect.
   else {
     Serial.println("WiFi Configured. Attempting Connection.");
    
@@ -211,6 +218,12 @@ void setup() {
 
   // Start the server
   server.begin();
+
+  // Begin LEDs
+  FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
+  fill_solid(leds, NUM_LEDS, CRGB::Purple);
+  // leds[0] = CRGB::Purple;
+  FastLED.show();
 }
 
 void loop() {
